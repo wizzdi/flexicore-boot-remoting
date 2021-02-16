@@ -11,5 +11,5 @@ import org.pf4j.Extension;
 @Remoting
 public interface TestService extends Plugin {
 
-	TestResponse test(TestRequest testRequest);
+	TestResponse test(TestRequest testRequest,TestRequest testRequest2);
 }

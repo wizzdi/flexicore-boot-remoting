@@ -71,10 +71,7 @@ public class RemotingControllerCustomizer implements InitializingBean {
 		return RequestMappingInfo
 				.paths(requestMapping.getUrl())
 				.methods(RequestMethod.valueOf(requestMapping.getHttpMethod().name()))
-				.consumes(requestMapping.getConsumes())
 				.headers(requestMapping.getHeaders())
-				.produces(requestMapping.getProduces())
-				.params(requestMapping.getParameters().stream().map(f -> f.getName()).toArray(String[]::new))
 				.build();
 	}
 

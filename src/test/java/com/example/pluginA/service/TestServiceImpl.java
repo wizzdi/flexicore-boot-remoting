@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class TestServiceImpl implements TestService{
 
 	@Override
-	public TestResponse test(TestRequest testRequest) {
+	public TestResponse test(TestRequest testRequest,TestRequest testRequest2) {
 		return new TestResponse().setName(testRequest.getName()+" greeted");
 	}
 }

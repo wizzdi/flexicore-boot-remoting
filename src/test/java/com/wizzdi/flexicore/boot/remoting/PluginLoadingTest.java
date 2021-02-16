@@ -25,6 +25,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = App.class)
@@ -58,9 +61,10 @@ public class PluginLoadingTest {
 				}
 			}
 			PluginJar pluginZip = new PluginJar.Builder(pluginsDir.toPath().resolve("my-plugin-1.2.3.zip"), PLUGIN_ID)
-					.extension("com.example.pluginA.PluginAService")
-					.extension("com.example.pluginA.service.TestService")
+
 					.extension("com.example.pluginA.service.TestServiceImpl")
+
+					.extension("com.example.pluginA.service.TestService")
 
 					.extension("com.example.pluginA.request.TestRequest")
 					.extension("com.example.pluginA.response.TestResponse")
@@ -96,8 +100,13 @@ public class PluginLoadingTest {
 	}
 	@Test
 	public void testControllerPlugin() {
+		Map<String,Object> map=new HashMap<>();
 		TestRequest test1 = new TestRequest().setName("test");
-		ResponseEntity<TestResponse> test = restTemplate.postForEntity("/test", test1,TestResponse.class);
+		TestRequest test2 = new TestRequest().setName("test2");
+		map.put("arg0",test1);
+		map.put("arg1",test2);
+
+		ResponseEntity<TestResponse> test = restTemplate.postForEntity("/TestService/test", map,TestResponse.class);
 		Assertions.assertEquals(200,test.getStatusCodeValue());
 		TestResponse body = test.getBody();
 		Assertions.assertNotNull(body);
