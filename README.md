@@ -68,4 +68,7 @@ an implementation inside an interface-impl-plugin plugin:
 
 [Spring Boot Starter Web](https://search.maven.org/artifact/org.springframework.boot/spring-boot-starter-web)
 
+[Eureka Discovery Client](https://search.maven.org/artifact/org.springframework.boot/spring-cloud-starter-netflix-eureka-client)
+
+
 [Spring REST Invoker](https://search.maven.org/artifact/com.github.ggeorgovassilis/spring-rest-invoker)

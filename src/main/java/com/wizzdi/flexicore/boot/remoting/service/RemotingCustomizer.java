@@ -1,10 +1,8 @@
 package com.wizzdi.flexicore.boot.remoting.service;
 
-import com.github.ggeorgovassilis.springjsonmapper.model.UrlMapping;
 import com.wizzdi.flexicore.boot.base.init.FlexiCoreApplicationContext;
 import com.wizzdi.flexicore.boot.base.interfaces.ContextCustomizer;
 import com.wizzdi.flexicore.boot.remoting.annotations.Remoting;
-import com.wizzdi.flexicore.boot.rest.service.CustomRequestMappingHandlerMapping;
 import org.apache.commons.lang.StringUtils;
 import org.pf4j.PluginManager;
 import org.pf4j.PluginWrapper;
@@ -13,16 +11,10 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.annotation.AnnotationUtils;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
-import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
-import java.lang.reflect.Method;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Component
